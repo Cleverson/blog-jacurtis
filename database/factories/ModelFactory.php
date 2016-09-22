@@ -22,13 +22,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
-    static $password;
+    $title = $faker->sentence(5);
+    $slug  = str_slug($title, '-');
 
     return [
-        'title'       => $faker->sentence(2),
+        'title'       => $title,
         'body'        => $faker->sentence(100),
+        'slug'        => $slug,
         'created_at'  => $faker->dateTimeThisMonth(),
-        'updated_at'  =>  $faker->dateTimeThisMonth(),
-
+        'updated_at'  => $faker->dateTimeThisMonth()
     ];
 });
