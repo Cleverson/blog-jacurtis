@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layouts.main')
 
 @section('title', "| $post->title " )
 
@@ -10,6 +10,5 @@
 			<p>{{ $post->body }}</p>
 		</div>
 	</div>
-
 
 @endsection

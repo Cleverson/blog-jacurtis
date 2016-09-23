@@ -11,8 +11,8 @@ class PagesController extends Controller
 {
     public function getIndex()
     {
-      $posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
-      return View('pages.welcome')->withPosts($posts);
+        $posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
+        return View('pages.welcome')->withPosts($posts);
     }
 
     public function getAbout()
@@ -22,8 +22,8 @@ class PagesController extends Controller
       $fullname = $first . " " . $last;
       $email = "cleverson.s.dias@gmail.com";
       $data = [
-        'fullname' => $fullname ,
-        'email' => $email,
+      'fullname' => $fullname ,
+      'email' => $email,
       ];
       return View('pages.about')->withData($data);
     }
