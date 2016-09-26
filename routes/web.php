@@ -22,6 +22,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('about', ['as' => 'about', 'uses' => 'PagesController@getAbout']);
 	Route::get('contact',['as' => 'contact', 'uses' => 'PagesController@getContact'] );
 
-	Route::resource('posts', 'PostController' );
+});
 
+Route::group(['middleware' => ['auth']], function() {
+
+	Route::resource('posts', 'PostController' );
+	Route::resource('categories', 'CategoryController', ['except' => 'create']);
+	
 });
